@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NASA</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
+    <script src="out/script.js" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Didact+Gothic&family=Space+Mono&display=swap" rel="stylesheet">
@@ -13,23 +13,25 @@
 
 <body>
 
-    <h1>Astronomy Picture of the Day</h1>
-    <p>Discover the cosmos! <br> Each day a different image or photograph of our fascinating universe is featured, along with a brief explanation written by a professional astronomer.</p>
+    <h1 id="title">Astronomy Picture of the Day</h1>
+    <p id="explanation"> <a href="https://apod.nasa.gov/apod/archivepix.html"> Discover the cosmos! </a> <br> Each day a different image or photograph of our fascinating universe is featured, along with a brief explanation written by a professional astronomer.</p>
     
     <div class="container">
 
         <div class="input-field">
 
             <label for="input">Choose a date</label>
-            <input type="text" id="date-input" maxlength="10" placeholder="YYYY-MM-DD">
+            <input type="date" id="date-input" maxlength="10" placeholder="YYYY-MM-DD">
             <button id="button"> <a> Let's see!</a> </button>
+            <a id="back" href="index.html">back</a>
 
         </div>
-        
+
     </div>
 
-    <img src="" alt="">
-    <iframe src="" frameborder="0"></iframe>
+    <img id="image" src="" alt="">
+    <p id="credit"></p>
 
+    
 </body>
 </html>
