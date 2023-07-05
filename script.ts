@@ -5,13 +5,19 @@ const explanationEl = document.getElementById("explanation") as HTMLElement
 const imageEl = document.getElementById("image") as HTMLImageElement
 const creditEl = document.getElementById("credit") as HTMLParagraphElement
 
+
+    imageEl.classList.remove("border")
+
+
 let getData = async () => {
     let response = await fetch(`https://api.nasa.gov/planetary/apod?date=${dateInput.value}&api_key=dGcaNs8FVDw69iD4KPrOSYxOfgUAy3KrvTuoBfA8`)
     let data = await response.json()
     console.log(data)
+
+    
     
     let renderData = (data:any) => {
-        getData()
+        
         if(data.title !== undefined){
             titleEl.innerHTML = data.title
         }else{
@@ -23,14 +29,22 @@ let getData = async () => {
             explanationEl.innerHTML = "Choose another date or press back"
         }
         imageEl.src = data.url
+        imageEl.classList.add("border")
         if(data.copyright !== undefined){
             creditEl.innerText = data.copyright
         }else{
             creditEl.innerText = ""
         }
+
+        
     }
+
+    /* renderData(data) */
     
-    button.addEventListener("click", async () => {
+    button.addEventListener("click", async() => {
+        let response = await fetch(`https://api.nasa.gov/planetary/apod?date=${dateInput.value}&api_key=dGcaNs8FVDw69iD4KPrOSYxOfgUAy3KrvTuoBfA8`)
+        let data = await response.json()
+
         renderData(data)
     })
 }
